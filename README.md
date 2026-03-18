@@ -4,11 +4,11 @@
 [![Built with Tauri](https://img.shields.io/badge/Built_with-Tauri-24C8D8?logo=tauri&logoColor=white)](https://tauri.app/)
 [![Powered by Rust](https://img.shields.io/badge/Powered_by-Rust-black?logo=rust)](https://www.rust-lang.org/)
 
-Wheely is a high-performance, local desktop application built with Tauri and Rust. By parsing the Abstract Syntax Tree (AST) of a codebase, it embeds pure structural logic rather than variable names. It runs silently in the background, proactively detecting when custom code can be replaced by existing open-source libraries to reduce technical debt and codebase bloat.
+Wheelie is a high-performance, local desktop application built with Tauri and Rust. By parsing the Abstract Syntax Tree (AST) of a codebase, it embeds pure structural logic rather than variable names. It runs silently in the background, proactively detecting when custom code can be replaced by existing open-source libraries to reduce technical debt and codebase bloat.
 
 ## 🚀 Core Features
 
-* **The "Reinvented Wheel" Detector:** Ships with a pre-populated, embedded vector database of anonymized open-source libraries (like `lodash` and `date-fns`). As you code, Wheely instantly alerts you if your custom logic structurally matches an existing, optimized library function.
+* **The "Reinvented Wheel" Detector:** Ships with a pre-populated, embedded vector database of anonymized open-source libraries (like `lodash` and `date-fns`). As you code, Wheelie instantly alerts you if your custom logic structurally matches an existing, optimized library function.
 * **Zero Cold-Start:** Because the library database is pre-packaged, the tool provides immediate, actionable insights on Day 1, File 1, without needing a massive internal codebase to establish context.
 * **Privacy-First & Offline:** Powered by a local Qdrant vector database and Rust-native LLM orchestration. Your code never leaves your machine.
 * **Specification Drift Detection:** Cross-references structural codebase changes with team communication (Git logs, Slack) to detect when code behavior diverges from documented intent.
@@ -31,4 +31,20 @@ Wheely is a high-performance, local desktop application built with Tauri and Rus
 
 ## 🧠 How It Works (The Pipeline)
 
-1.  **Watch:**
+1.  **Watch:** Select your workspace. The Rust `notify` crate silently watches the folder.
+2.  **Trigger & Parse:** On file save, Rust grabs the text and feeds it to `tree-sitter`.
+3.  **Selective Anonymization:** A custom algorithm walks the AST, stripping subjective names (`calculateTouchdown() -> FUNC_1`) but keeping core logic indicators (`Math.abs`, `fetch`).
+4.  **Embed & Search:** The structural string is converted into a mathematical vector and queried against the local Qdrant database.
+5.  **Insight:** If the vector matches a known library pattern, a desktop notification suggests the replacement.
+
+## 🛠️ Getting Started
+
+*(Instructions for local development and build process will be added here as the project progresses. Prerequisites will include Node.js, Rust, and Cargo).*
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
