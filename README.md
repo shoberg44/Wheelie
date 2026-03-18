@@ -44,7 +44,3 @@ Wheelie is a high-performance, local desktop application built with Tauri and Ru
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
